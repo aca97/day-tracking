@@ -1,0 +1,29 @@
+.main {
+  display: flex;
+  margin: 50px;
+  justify-content: flex-end;
+}
+.confirm-button {
+  padding: 28px;
+  margin-right: 10px;
+}
+.container {
+  display: flex;
+}
+
+mat-card {
+  width: 100%;
+  min-height: 100%;
+}
+
+mat-card-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.btn{
+  margin-bottom: 5px;
+}
+.content {
+  margin-top: 15px;
+}

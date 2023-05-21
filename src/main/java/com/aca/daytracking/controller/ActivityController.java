@@ -1,5 +1,6 @@
 package com.aca.daytracking.controller;
 
+import com.aca.daytracking.dto.activity.ActivityDTO;
 import com.aca.daytracking.entity.Activity;
 import com.aca.daytracking.service.ActivityService;
 import com.aca.daytracking.service.DayService;
@@ -7,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/activity")
@@ -21,6 +24,11 @@ public class ActivityController {
     public ResponseEntity<Activity> createActivity(@RequestBody Activity activity) {
         Activity createdActivity = activityService.createActivity(activity);
         return new ResponseEntity<>(createdActivity, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/{dayId}")
+    public List<ActivityDTO> getAllActivitiesForDay(@PathVariable Long dayId) {
+        return activityService.getAllActivitiesForTheDay(dayId);
     }
 
 }

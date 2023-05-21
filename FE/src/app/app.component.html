@@ -1,0 +1,42 @@
+<div class="main">
+  <button
+    class="confirm-button"
+    mat-raised-button
+    color="primary"
+    (click)="createNewWeek()"
+  >
+    Create new week
+  </button>
+  <mat-form-field appearance="outline">
+    <mat-label>Select Week</mat-label>
+    <mat-select
+      [(ngModel)]="selectedOption"
+      (selectionChange)="onOptionChange()"
+    >
+      <mat-option *ngFor="let option of weekData" [value]="option">
+        {{ option.name }} {{ option.number }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="container">
+  <mat-card *ngFor="let item of selectedWeekDaysData">
+    <mat-card-header>
+      <div class="card-header">
+        {{ item.name }}
+      </div>
+      <div class="btn">
+        <button class="add-button"
+        mat-raised-button
+        color="warn"
+        (click)="openDialog(item.id)">+</button>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="content" *ngFor="let act of item.activities">
+        {{ act.activityTime }} - {{ act.description }}
+        <hr />
+      </div> </mat-card-content
+  ></mat-card>
+</div>

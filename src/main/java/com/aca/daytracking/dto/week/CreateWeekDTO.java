@@ -11,7 +11,5 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateWeekDTO {
-    private Long id;
     private int number;
-    private List<DayDTO> days;
 }
